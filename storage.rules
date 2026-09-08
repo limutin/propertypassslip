@@ -1,0 +1,30 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Pass slip PDFs
+    match /pass-slips/{passSlipPdf} {
+      // Anyone can read PDFs (for downloading)
+      allow read: if true;
+      
+      // Only allow writes from authenticated users or file size < 5MB
+      allow write: if request.auth != null || 
+                      (request.resource.size < 5 * 1024 * 1024 && 
+                       request.resource.contentType == 'application/pdf');
+    }
+    
+    // Assets folder (logos, signatures, etc.)
+    match /assets/{assetFile} {
+      // Anyone can read assets
+      allow read: if true;
+      
+      // Only authenticated users (admins) can write
+      allow write: if request.auth != null;
+    }
+    
+    // Deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
