@@ -1,0 +1,106 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║              🚀 FIREBASE DEPLOYMENT COMMANDS 🚀              ║
+║                                                               ║
+║     Copy and paste these into Command Prompt, one at a time  ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+┌───────────────────────────────────────────────────────────────┐
+│  STEP 1: OPEN COMMAND PROMPT                                  │
+└───────────────────────────────────────────────────────────────┘
+
+  1. Open File Explorer
+  2. Go to: c:\Users\ACER\Desktop\PropertyPassslip\propertypassslip
+  3. Click in the address bar (top of window)
+  4. Type: cmd
+  5. Press Enter
+
+
+┌───────────────────────────────────────────────────────────────┐
+│  STEP 2: COPY AND RUN THESE COMMANDS (one at a time)         │
+└───────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────
+COMMAND 1: Login to Firebase
+────────────────────────────────────────────────────────────────
+npx firebase-tools login
+
+[Browser will open → Sign in → Close browser → Come back]
+────────────────────────────────────────────────────────────────
+
+
+────────────────────────────────────────────────────────────────
+COMMAND 2: Initialize Firebase
+────────────────────────────────────────────────────────────────
+npx firebase-tools init
+
+[Answer questions:
+ - Features: SPACEBAR on "Hosting", then ENTER
+ - Project: "Use existing project", ENTER
+ - Which project: Choose yours, ENTER
+ - Public directory: Type "dist", ENTER
+ - Single-page: Type "Y", ENTER
+ - GitHub: Type "N", ENTER]
+────────────────────────────────────────────────────────────────
+
+
+────────────────────────────────────────────────────────────────
+COMMAND 3: Install Dependencies
+────────────────────────────────────────────────────────────────
+npm install
+
+[Wait 1-2 minutes...]
+────────────────────────────────────────────────────────────────
+
+
+────────────────────────────────────────────────────────────────
+COMMAND 4: Build Project
+────────────────────────────────────────────────────────────────
+npm run build
+
+[Wait 30 seconds...]
+────────────────────────────────────────────────────────────────
+
+
+────────────────────────────────────────────────────────────────
+COMMAND 5: Deploy to Firebase!
+────────────────────────────────────────────────────────────────
+npx firebase-tools deploy --only hosting
+
+[Wait 1-2 minutes...]
+[Copy the Hosting URL that appears!]
+────────────────────────────────────────────────────────────────
+
+
+╔═══════════════════════════════════════════════════════════════╗
+║  ✅ DONE! Copy the URL and open it in your browser!          ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+┌───────────────────────────────────────────────────────────────┐
+│  🔄 FOR FUTURE UPDATES (Just run these 2):                   │
+└───────────────────────────────────────────────────────────────┘
+
+npm run build
+npx firebase-tools deploy --only hosting
+
+
+┌───────────────────────────────────────────────────────────────┐
+│  📝 WRITE YOUR INFO HERE:                                     │
+└───────────────────────────────────────────────────────────────┘
+
+My Live URL: _________________________________________________
+
+Deployed on: _________________________________________________
+
+
+╔═══════════════════════════════════════════════════════════════╗
+║  ⚠️ IMPORTANT: Before running these commands!                ║
+║                                                               ║
+║  Make sure you updated: src/firebase/config.js               ║
+║  With your Firebase project credentials!                     ║
+║                                                               ║
+║  See: config-example.txt for how to do this                  ║
+╚═══════════════════════════════════════════════════════════════╝

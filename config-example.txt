@@ -1,0 +1,49 @@
+═══════════════════════════════════════════════════════════════
+HOW TO UPDATE src/firebase/config.js
+═══════════════════════════════════════════════════════════════
+
+BEFORE (What you have now - DON'T USE THIS):
+───────────────────────────────────────────────────────────────
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+
+AFTER (Example with REAL values - yours will be different):
+───────────────────────────────────────────────────────────────
+const firebaseConfig = {
+  apiKey: "AIzaSyC5X2Z3Y4W5V6U7T8S9R0Q1P2O3N4M5L6K",
+  authDomain: "propertypassslip-abc123.firebaseapp.com",
+  projectId: "propertypassslip-abc123",
+  storageBucket: "propertypassslip-abc123.appspot.com",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abc123def456ghi789"
+};
+
+
+WHERE TO GET YOUR REAL VALUES:
+───────────────────────────────────────────────────────────────
+1. Go to: https://console.firebase.google.com/
+2. Click your project
+3. Click the gear ⚙️ icon (left sidebar)
+4. Click "Project Settings"
+5. Scroll down to "Your apps"
+6. Click on your web app (or add one with the </> button)
+7. Copy ALL the values
+8. Paste into src/firebase/config.js
+
+
+IMPORTANT NOTES:
+───────────────────────────────────────────────────────────────
+✓ Keep the quotes around each value
+✓ Keep the commas after each line (except the last one)
+✓ Don't change anything else in the file
+✓ Save the file after editing (Ctrl + S)
+✓ YOUR values will be different from the example above!
+
+═══════════════════════════════════════════════════════════════

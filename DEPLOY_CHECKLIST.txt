@@ -1,0 +1,136 @@
+═══════════════════════════════════════════════════════════
+    PROPERTYPASSSLIP - FIREBASE DEPLOYMENT CHECKLIST
+═══════════════════════════════════════════════════════════
+
+PREREQUISITES
+═════════════
+□ Node.js installed (check: node --version)
+□ npm installed (check: npm --version)
+□ Firebase account created
+□ Firebase project created at console.firebase.google.com
+□ Firebase services enabled:
+  □ Authentication (Email/Password)
+  □ Firestore Database
+  □ Storage
+
+FIRST TIME SETUP
+════════════════
+□ Step 1: Check setup
+  → Double-click: check-setup.bat
+  → Verify all checks are OK
+
+□ Step 2: Login to Firebase
+  → Double-click: firebase-login.bat
+  → Sign in via browser
+  → Return to terminal
+
+□ Step 3: Initialize Firebase project
+  → Double-click: firebase-init.bat
+  → Select: Hosting (spacebar + Enter)
+  → Choose your Firebase project
+  → Public directory: dist
+  → Single-page app: Yes
+  → GitHub: No
+
+□ Step 4: Get Firebase credentials
+  → Go to: console.firebase.google.com
+  → Select your project
+  → Click Settings ⚙️ → Project Settings
+  → Scroll to "Your apps"
+  → Click </> (Web app)
+  → Copy config values
+
+□ Step 5: Update configuration
+  → Open: src/firebase/config.js
+  → Replace placeholder values with real credentials:
+    - apiKey
+    - authDomain
+    - projectId
+    - storageBucket
+    - messagingSenderId
+    - appId
+
+□ Step 6: Deploy!
+  → Double-click: deploy.bat
+  → Wait for "Deploy complete!"
+  → Copy your Hosting URL
+  → Open URL in browser
+
+VERIFICATION
+════════════
+□ Site loads without errors
+□ Landing page shows correctly
+□ Pass slip form works
+□ Admin login works
+□ Admin dashboard loads
+□ PDF generation works
+□ Charts display properly
+
+FIREBASE CONSOLE CHECKS
+════════════════════════
+□ Firestore rules deployed
+□ Storage rules deployed
+□ Admin user created in Authentication
+□ Database collections exist
+□ Storage bucket configured
+
+AFTER MAKING CHANGES
+════════════════════════
+□ Save all code changes
+□ Double-click: deploy.bat
+□ Wait for completion
+□ Refresh browser (Ctrl + Shift + R)
+
+MANUAL COMMANDS (ALTERNATIVE)
+══════════════════════════════
+
+First time:
+-----------
+npx firebase-tools login
+npx firebase-tools init
+npm install
+
+Every deployment:
+-----------------
+npm run build
+npx firebase-tools deploy --only hosting
+
+COMMON ISSUES & SOLUTIONS
+═════════════════════════════
+
+Issue: PowerShell script error
+Solution: Use Command Prompt (CMD) instead
+
+Issue: "Not logged in"
+Solution: Run firebase-login.bat
+
+Issue: "Project not found"
+Solution: Run firebase-init.bat
+
+Issue: Build fails
+Solution: Run "npm install" then "npm run build"
+
+Issue: Blank page
+Solution: Check src/firebase/config.js has real values
+
+Issue: 404 errors
+Solution: Verify firebase.json settings
+
+YOUR DEPLOYMENT INFO
+════════════════════════════════════════════════════════════
+Project ID: _________________________________________
+
+Hosting URL: _________________________________________
+
+Admin Email: _________________________________________
+
+Deployment Date: _________________________________________
+
+Notes:
+_________________________________________
+_________________________________________
+_________________________________________
+
+═══════════════════════════════════════════════════════════
+For detailed help, see: FIREBASE_HOSTING_GUIDE.md
+═══════════════════════════════════════════════════════════

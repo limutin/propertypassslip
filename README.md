@@ -176,21 +176,41 @@ Sample Cloud Function structure is provided in the `functions/` directory.
 - **Gray**: #6B7280 / #E5E7EB (secondary/backgrounds)
 - **White**: #FFFFFF (base)
 
-## Deployment
+## 🚀 Deployment
 
-### Firebase Hosting (Recommended)
+### Quick Deploy to Firebase Hosting
 
+**For first-time setup, see:** [QUICK_DEPLOY.md](QUICK_DEPLOY.md)
+
+**Automated Scripts** (Windows):
+1. Double-click `check-setup.bat` - Verify setup
+2. Double-click `firebase-login.bat` - Login to Firebase
+3. Double-click `firebase-init.bat` - Connect project
+4. Update `src/firebase/config.js` with your credentials
+5. Double-click `deploy.bat` - Build and deploy!
+
+**Manual Commands**:
 ```bash
+# First time setup
+npx firebase-tools login
+npx firebase-tools init
+npm install
+
+# Build and deploy
 npm run build
-firebase init hosting
-firebase deploy
+npx firebase-tools deploy --only hosting
 ```
 
-### Other Options
+**Complete Guides**:
+- 📘 [QUICK_DEPLOY.md](QUICK_DEPLOY.md) - Fast start guide
+- 📗 [FIREBASE_HOSTING_GUIDE.md](FIREBASE_HOSTING_GUIDE.md) - Complete documentation
+- 📕 [DEPLOY_TO_FIREBASE.md](DEPLOY_TO_FIREBASE.md) - Detailed instructions
 
-- Vercel: Connect GitHub repository and deploy
-- Netlify: Drag and drop the `dist` folder
-- Any static hosting service
+### Other Hosting Options
+
+- **Vercel**: Connect GitHub repository and deploy
+- **Netlify**: Drag and drop the `dist` folder
+- **Any static hosting**: Build with `npm run build` and upload `dist` folder
 
 ## Support
 
